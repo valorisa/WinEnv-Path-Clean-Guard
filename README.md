@@ -144,7 +144,7 @@ git --version; "PATH: $([Environment]::GetEnvironmentVariable('Path','Machine') 
 
 ***
 
-## 🎸 **QUI BESOIN DE ÇA ?**
+## 🎸 **QUI A BESOIN DE ÇA ?**
 
 **Toi si tu coches ✓ :**
 - [x] **Windows 11 Entreprise**
