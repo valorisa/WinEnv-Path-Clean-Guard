@@ -190,6 +190,92 @@ git --version
 
 ***
 
+---
+
+## **🤔 GitHub Actions : MONITORING CLOUD vs ACTION LOCALE**
+
+**NON, ce n'est PAS automatique pour ton PATH local !**
+
+### **📋 Explication claire :**
+
+#### **GitHub Actions = CI/CD CLOUD uniquement**
+```text
+✅ Exécuté sur serveurs GitHub (windows-latest)
+✅ 1er du mois à 10h CET → Lance Check-Status.ps1  
+✅ Logs + résultats → GitHub (Actions tab)
+❌ NE MODIFIE JAMAIS ton PATH LOCAL (sécurité)
+```
+
+#### **Ton PATH local = `C:\Users\bbrod\` → INCHANGÉ**
+**GitHub Actions analyse le PATH** de sa VM cloud mais **ne touche JAMAIS** ton PC.
+
+---
+
+#### **🎯 CE QUE FAIT `Monthly-Clean.yaml` exactement**
+```yaml
+# 1er du mois 10h CET (serveur GitHub) :
+1. Checkout ce repo
+2. PowerShell 7.6 setup (VM cloud)
+3. Check-Status.ps1 → Analyse PATH VM
+4. Logs détaillés → GitHub Actions tab
+5. **RIEN sur ton PC local**
+```
+
+---
+
+#### **🚀 TON PATH LOCAL = MAINTENU PAR TOI**
+**Tes scripts locaux font le vrai boulot :**
+
+```powershell
+# Mensuel (5min) → SUR TON PC
+cd "C:\Users\bbrod\Projets\WinEnv-path-clean-guard"
+.\Check-Status.ps1        # Diagnostics complets
+.\Clean-Path.ps1          # Nettoie (backup auto + confirme O)
+```
+
+**GitHub Actions = ALERTE + HISTORIQUE (bonus).**
+
+---
+
+#### **📅 PLAN D'ACTION MENSUEL (TON PC)**
+```powershell
+🚀 1er du mois → MANUEL (5min) :
+1. .\Check-Status.ps1           → Diagnostics
+2. .\Clean-Path.ps1 (O)         → Nettoie (backup auto)
+3. winget upgrade --all         → Outils
+4. git push                     → Logs GitHub
+
+✅ GitHub Actions = BONUS monitoring (pas obligatoire)
+```
+
+**🎯 RÉSUMÉ :** `GitHub Actions = MONITORING CLOUD`, `Clean-Path.ps1 = ACTION LOCALE !`
+
+**Contrôle total → parfait DevOps Entreprise !** 🛡️
+```
+
+***
+
+## **🎯 STRUCTURE FINALE README.md**
+
+```text
+# 🚀 WinEnv-path-clean-guard
+[badges]
+
+## 🎯 Le problème 2047 chars
+## 🔥 Ce projet résout
+## 🛠️ Fonctionnalités PRO
+## 📋 CHECKLIST Maintenance
+## ⚡ Vérification rapide
+## 💾 Backups automatiques
+## 🎸 Pour qui ?
+## 🎤 L'histoire (21 Mars)
+## 🚀 GET STARTED
+## 👇 NOUVELLE SECTION GitHub Actions EXPLIQUÉE 👇
+## 📈 Roadmap
+```
+
+---
+
 ## 📈 **ROADMAP**
 ```text
 ✅ v1.0 - Base (diagnostics + clean + backup)
