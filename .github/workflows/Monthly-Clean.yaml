@@ -1,0 +1,16 @@
+name: 🛡️ Monthly PATH Guard
+
+on:
+  schedule:
+    # 1er du mois à 9h UTC (10h CET)
+    - cron: '0 9 1 * *'
+  workflow_dispatch: # Manuel aussi
+
+jobs:
+  check-path:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: PowerShell 7.6 Setup
+      uses: actions/setup-powershell@v1
