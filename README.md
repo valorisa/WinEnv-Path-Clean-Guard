@@ -175,7 +175,7 @@ PS> "Variable d'environnement trop volumineuse" 😡
 
 ```powershell
 # 1. Clone
-git clone https://github.com/valorisa/WinEnv-path-clean-guard.git
+git clone https://github.com/valorisa/WinEnv-Path-Clean-Guard.git
 cd WinEnv-path-clean-guard
 
 # 2. Diagnostic
